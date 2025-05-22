@@ -34,31 +34,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 1
-								},
-								"sink": {
-									"name": "id",
-									"type": "int",
-									"physicalType": "int",
-									"precision": 10
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 2
-								},
-								"sink": {
-									"name": "title",
-									"type": "varchar",
-									"physicalType": "varchar"
-								}
-							}
-						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
@@ -82,7 +57,8 @@
 		],
 		"parameters": {
 			"file_path": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "jobs"
 			}
 		},
 		"annotations": []
