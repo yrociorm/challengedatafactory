@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "jobs.csv",
 				"container": "jobs"
 			},
 			"columnDelimiter": ",",
@@ -17,15 +18,6 @@
 			"firstRowAsHeader": false,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "1",
-				"type": "String"
-			},
-			{
-				"name": "Marketing Assistant",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
