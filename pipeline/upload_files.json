@@ -1,9 +1,9 @@
 {
-	"name": "blob_to_table",
+	"name": "upload_files",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copy_data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -17,32 +17,51 @@
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
+						"additionalColumns": {
+							"type": "Expression",
+							"value": "@pipeline().parameters.file_path"
+						},
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
+							"fileListPath": "jobs",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText1",
-						"type": "DatasetReference",
-						"parameters": {
-							"": "@pipeline().parameters.file_path"
-						}
+						"referenceName": "jobfile",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"parameters": {
 			"file_path": {
-				"type": "string",
-				"defaultValue": "@concat(triggerBody().folderPath, '/', triggerBody().fileName)"
+				"type": "string"
 			}
 		},
 		"annotations": []

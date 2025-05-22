@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "blob_to_csv",
+					"referenceName": "upload_files",
 					"type": "PipelineReference"
 				}
 			}
