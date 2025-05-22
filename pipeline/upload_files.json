@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "copy_data",
+				"name": "Copy data1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -19,7 +19,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"fileListPath": "jobs",
+							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -55,12 +55,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"file_path": {
-				"type": "string",
-				"defaultValue": "jobs"
-			}
-		},
 		"annotations": []
 	}
 }
