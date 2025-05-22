@@ -1,0 +1,25 @@
+{
+	"name": "triggerjobs",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "blob_to_csv",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/jobs/blobs/",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
