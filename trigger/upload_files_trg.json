@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "when the files will upload it will be carged on database",
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -14,7 +14,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/jobs/blobs/",
+			"blobPathBeginsWith": "/jobs/blobs/jobs",
 			"blobPathEndsWith": "*.csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles",
