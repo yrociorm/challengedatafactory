@@ -301,8 +301,8 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/jobs/blobs/jobs",
-					"blobPathEndsWith": "*.csv",
+					"blobPathBeginsWith": "/jobs/blobs/",
+					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('upload_files_trg_properties_typeProperties_scope')]",
 					"events": [
