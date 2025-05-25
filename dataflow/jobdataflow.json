@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "jobdataflow",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -18,7 +18,7 @@
 						"referenceName": "ouputsql",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sinkjobs"
 				}
 			],
 			"transformations": [],
@@ -45,7 +45,7 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkjobs"
 			]
 		}
 	}
