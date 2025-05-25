@@ -21,7 +21,11 @@
 					"name": "sinkjobs"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "AlterRow1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          {1} as string,",
@@ -31,7 +35,8 @@
 				"     validateSchema: false,",
 				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> jobsfile",
-				"jobsfile sink(allowSchemaDrift: true,",
+				"jobsfile alterRow() ~> AlterRow1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id as integer,",
