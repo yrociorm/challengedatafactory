@@ -149,7 +149,7 @@
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@pipeline().parameters.sourceFolder",
+							"value": "@{replace(pipeline().parameters.sourceFolder, 'fileupload/', '')}",
 							"type": "Expression"
 						},
 						"container": "fileupload"
