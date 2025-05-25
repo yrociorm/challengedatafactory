@@ -122,7 +122,11 @@
 							"value": "@pipeline().parameters.sourceFile",
 							"type": "Expression"
 						},
-						"container": "jobs"
+						"folderPath": {
+							"value": "@pipeline().parameters.sourceFolder",
+							"type": "Expression"
+						},
+						"container": "fileupload"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -264,12 +268,10 @@
 				},
 				"parameters": {
 					"sourceFolder": {
-						"type": "string",
-						"defaultValue": "@triggerBody().folderPath"
+						"type": "string"
 					},
 					"sourceFile": {
-						"type": "string",
-						"defaultValue": "@triggerBody().fileName"
+						"type": "string"
 					}
 				},
 				"annotations": []
@@ -301,7 +303,7 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/jobs/blobs/",
+					"blobPathBeginsWith": "/fileupload/blobs/jobs",
 					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('upload_files_trg_properties_typeProperties_scope')]",
