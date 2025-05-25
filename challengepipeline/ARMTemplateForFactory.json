@@ -174,10 +174,6 @@
 							"value": "@pipeline().parameters.sourceFile",
 							"type": "Expression"
 						},
-						"folderPath": {
-							"value": "@pipeline().parameters.sourceFolder",
-							"type": "Expression"
-						},
 						"container": "fileupload"
 					},
 					"columnDelimiter": ",",
