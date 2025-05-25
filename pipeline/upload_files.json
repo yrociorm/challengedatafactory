@@ -34,23 +34,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"sink": {
-									"name": "id",
-									"type": "int",
-									"physicalType": "int",
-									"precision": 10
-								}
-							},
-							{
-								"sink": {
-									"name": "title",
-									"type": "varchar",
-									"physicalType": "varchar"
-								}
-							}
-						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
