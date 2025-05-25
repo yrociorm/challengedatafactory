@@ -14,7 +14,10 @@
 					"value": "@pipeline().parameters.sourceFile",
 					"type": "Expression"
 				},
-				"container": "fileupload"
+				"folderPath": {
+					"value": "@pipeline().parameters.sourceFolder",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
