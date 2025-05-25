@@ -81,12 +81,10 @@
 		],
 		"parameters": {
 			"sourceFolder": {
-				"type": "string",
-				"defaultValue": "@triggerBody().folderPath"
+				"type": "string"
 			},
 			"sourceFile": {
-				"type": "string",
-				"defaultValue": "@triggerBody().fileName"
+				"type": "string"
 			}
 		},
 		"annotations": []
