@@ -80,6 +80,16 @@
 				]
 			}
 		],
+		"parameters": {
+			"sourceFolder": {
+				"type": "string",
+				"defaultValue": "@triggerBody().folderPath"
+			},
+			"sourceFile": {
+				"type": "string",
+				"defaultValue": "@triggerBody().fileName"
+			}
+		},
 		"annotations": []
 	}
 }

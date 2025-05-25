@@ -9,6 +9,10 @@
 				"pipelineReference": {
 					"referenceName": "upload_files",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"sourceFolder": "@triggerBody().folderPath",
+					"sourceFile": "@triggerBody().fileName"
 				}
 			}
 		],
