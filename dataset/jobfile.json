@@ -10,7 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "jobs.csv",
+				"fileName": {
+					"value": "@pipeline().parameters.sourceFile",
+					"type": "Expression"
+				},
 				"container": "jobs"
 			},
 			"columnDelimiter": ",",
