@@ -22,6 +22,9 @@
 		},
 		"triggerjobs_properties_typeProperties_scope": {
 			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
+		},
+		"upload_files_trg_properties_typeProperties_scope": {
+			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		}
 	}
 }

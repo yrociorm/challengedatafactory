@@ -31,6 +31,10 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
+		"upload_files_trg_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -75,6 +79,9 @@
 					},
 					"triggerjobs_properties_typeProperties_scope": {
 						"value": "[parameters('triggerjobs_properties_typeProperties_scope')]"
+					},
+					"upload_files_trg_properties_typeProperties_scope": {
+						"value": "[parameters('upload_files_trg_properties_typeProperties_scope')]"
 					}
 				}
 			},
