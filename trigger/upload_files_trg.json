@@ -3,19 +3,8 @@
 	"properties": {
 		"description": "when the files will upload it will be carged on database",
 		"annotations": [],
-		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "upload_files",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"sourceFolder": "@triggerBody().folderPath",
-					"sourceFile": "@triggerBody().fileName"
-				}
-			}
-		],
+		"runtimeState": "Stopped",
+		"pipelines": [],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/fileupload/blobs/",
