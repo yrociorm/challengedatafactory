@@ -31,6 +31,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
+		"upload_files_trg_properties_upload_files_parameters_sourceFolder": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"upload_files_trg_properties_upload_files_parameters_sourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
 		"upload_files_trg_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
@@ -129,6 +137,16 @@
 				"policy": {
 					"elapsedTimeMetric": {}
 				},
+				"parameters": {
+					"sourceFolder": {
+						"type": "string",
+						"defaultValue": "@triggerBody().folderPath"
+					},
+					"sourceFile": {
+						"type": "string",
+						"defaultValue": "@triggerBody().fileName"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -150,7 +168,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "jobs.csv",
+						"fileName": {
+							"value": "@pipeline().parameters.sourceFile",
+							"type": "Expression"
+						},
 						"container": "jobs"
 					},
 					"columnDelimiter": ",",
@@ -244,15 +265,7 @@
 			"properties": {
 				"annotations": [],
 				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "upload_files",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
+				"pipelines": [],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/jobs/blobs/",
@@ -264,9 +277,7 @@
 					]
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/upload_files')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/upload_files_trg')]",
@@ -282,12 +293,15 @@
 							"referenceName": "upload_files",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"sourceFolder": "[parameters('upload_files_trg_properties_upload_files_parameters_sourceFolder')]",
+							"sourceFile": "[parameters('upload_files_trg_properties_upload_files_parameters_sourceFile')]"
+						}
 					}
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/jobs/blobs/",
+					"blobPathBeginsWith": "/jobs/blobs/jobs",
 					"blobPathEndsWith": "*.csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('upload_files_trg_properties_typeProperties_scope')]",

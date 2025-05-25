@@ -31,6 +31,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
+		"upload_files_trg_properties_upload_files_parameters_sourceFolder": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"upload_files_trg_properties_upload_files_parameters_sourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
 		"upload_files_trg_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
@@ -79,6 +87,12 @@
 					},
 					"triggerjobs_properties_typeProperties_scope": {
 						"value": "[parameters('triggerjobs_properties_typeProperties_scope')]"
+					},
+					"upload_files_trg_properties_upload_files_parameters_sourceFolder": {
+						"value": "[parameters('upload_files_trg_properties_upload_files_parameters_sourceFolder')]"
+					},
+					"upload_files_trg_properties_upload_files_parameters_sourceFile": {
+						"value": "[parameters('upload_files_trg_properties_upload_files_parameters_sourceFile')]"
 					},
 					"upload_files_trg_properties_typeProperties_scope": {
 						"value": "[parameters('upload_files_trg_properties_typeProperties_scope')]"

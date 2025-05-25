@@ -31,6 +31,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
+		"upload_files_trg_properties_upload_files_parameters_sourceFolder": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"upload_files_trg_properties_upload_files_parameters_sourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
 		"upload_files_trg_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
@@ -76,6 +84,27 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/triggerjobs')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/jobs/blobs/",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('triggerjobs_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/jobfile')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -89,7 +118,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "jobs.csv",
+						"fileName": {
+							"value": "@pipeline().parameters.sourceFile",
+							"type": "Expression"
+						},
 						"container": "jobs"
 					},
 					"columnDelimiter": ",",
@@ -230,42 +262,21 @@
 				"policy": {
 					"elapsedTimeMetric": {}
 				},
+				"parameters": {
+					"sourceFolder": {
+						"type": "string",
+						"defaultValue": "@triggerBody().folderPath"
+					},
+					"sourceFile": {
+						"type": "string",
+						"defaultValue": "@triggerBody().fileName"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/jobfile')]",
 				"[concat(variables('factoryId'), '/datasets/ouputsql')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/triggerjobs')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "upload_files",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/jobs/blobs/",
-					"blobPathEndsWith": ".csv",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('triggerjobs_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/upload_files')]"
 			]
 		},
 		{
@@ -282,12 +293,15 @@
 							"referenceName": "upload_files",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"sourceFolder": "[parameters('upload_files_trg_properties_upload_files_parameters_sourceFolder')]",
+							"sourceFile": "[parameters('upload_files_trg_properties_upload_files_parameters_sourceFile')]"
+						}
 					}
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/jobs/blobs/",
+					"blobPathBeginsWith": "/jobs/blobs/jobs",
 					"blobPathEndsWith": "*.csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('upload_files_trg_properties_typeProperties_scope')]",
