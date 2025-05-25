@@ -5,14 +5,9 @@
 			{
 				"name": "Copy data1",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Data flow1",
-						"dependencyConditions": [
-							"Completed"
-						]
-					}
-				],
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -87,7 +82,7 @@
 				]
 			},
 			{
-				"name": "Data flow1",
+				"name": "jobdataflow",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -100,7 +95,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow1",
+						"referenceName": "jobdataflow",
 						"type": "DataFlowReference"
 					},
 					"compute": {
