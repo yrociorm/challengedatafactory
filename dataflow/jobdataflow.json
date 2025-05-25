@@ -23,7 +23,7 @@
 			],
 			"transformations": [
 				{
-					"name": "AlterRow1"
+					"name": "alterrow"
 				}
 			],
 			"scriptLines": [
@@ -35,8 +35,8 @@
 				"     validateSchema: false,",
 				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> jobsfile",
-				"jobsfile alterRow() ~> AlterRow1",
-				"AlterRow1 sink(allowSchemaDrift: true,",
+				"jobsfile alterRow() ~> alterrow",
+				"alterrow sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id as integer,",
