@@ -288,7 +288,7 @@
 			"properties": {
 				"description": "when the files will upload it will be carged on database",
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
