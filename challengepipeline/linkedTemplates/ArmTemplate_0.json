@@ -288,7 +288,7 @@
 			"properties": {
 				"description": "when the files will upload it will be carged on database",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -303,7 +303,7 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/fileupload/blobs/jobs",
+					"blobPathBeginsWith": "/fileupload/blobs/",
 					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('upload_files_trg_properties_typeProperties_scope')]",
