@@ -35,6 +35,9 @@
 				},
 				{
 					"name": "joinDeparments"
+				},
+				{
+					"name": "AlterRow1"
 				}
 			],
 			"scriptLines": [
@@ -62,7 +65,8 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> joinDeparments",
-				"joinDeparments sink(allowSchemaDrift: true,",
+				"joinDeparments alterRow(upsertIf(Column_1>0)) ~> AlterRow1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id as integer,",
