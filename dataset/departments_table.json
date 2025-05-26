@@ -20,7 +20,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "jobs"
+			"table": "departments"
 		}
 	}
 }
