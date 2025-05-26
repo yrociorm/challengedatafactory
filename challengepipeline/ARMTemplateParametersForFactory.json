@@ -29,6 +29,15 @@
 		"trigger_upload_departments_properties_typeProperties_scope": {
 			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
+		"trigger_upload_employees_properties_upload_employees_parameters_sourceFolder": {
+			"value": "@triggerBody().folderPath"
+		},
+		"trigger_upload_employees_properties_upload_employees_parameters_sourceFile": {
+			"value": "@triggerBody().fileName"
+		},
+		"trigger_upload_employees_properties_typeProperties_scope": {
+			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
+		},
 		"trigger_upload_jobs_properties_upload_jobs_parameters_sourceFolder": {
 			"value": "@triggerBody().folderPath"
 		},
@@ -42,15 +51,6 @@
 			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
 		"upload_files_trg_properties_typeProperties_scope": {
-			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
-		},
-		"trigger_upload_employees_properties_upload_employees_parameters_sourceFolder": {
-			"value": "@triggerBody().folderPath"
-		},
-		"trigger_upload_employees_properties_upload_employees_parameters_sourceFile": {
-			"value": "@triggerBody().fileName"
-		},
-		"trigger_upload_employees_properties_typeProperties_scope": {
 			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		}
 	}
