@@ -13,7 +13,12 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "filteredEmployees",
+					"description": "Add expression for the filter"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Column_1 as string,",
@@ -24,7 +29,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> sourceEmployees"
+				"     ignoreNoFilesFound: false) ~> sourceEmployees",
+				"sourceEmployees filter(!isNull(Column_4) && !isNull(Column_5)) ~> filteredEmployees"
 			]
 		}
 	}
