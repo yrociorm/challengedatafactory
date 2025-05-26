@@ -1,5 +1,5 @@
 {
-	"name": "triggerupload",
+	"name": "trigger_upload",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -17,7 +17,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/fileupload/blobs/",
+			"blobPathBeginsWith": "/fileupload/blobs/jobs",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles",
