@@ -1,5 +1,5 @@
 {
-	"name": "jobfile",
+	"name": "job_file",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",

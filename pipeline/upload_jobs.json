@@ -1,5 +1,5 @@
 {
-	"name": "upload_files",
+	"name": "upload_jobs",
 	"properties": {
 		"activities": [
 			{
@@ -75,13 +75,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "jobfile",
+						"referenceName": "job_file",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ouputsql",
+						"referenceName": "job_table",
 						"type": "DatasetReference"
 					}
 				]

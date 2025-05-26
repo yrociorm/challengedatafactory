@@ -1,5 +1,5 @@
 {
-	"name": "ouputsql",
+	"name": "job_table",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase",

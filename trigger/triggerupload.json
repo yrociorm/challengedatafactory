@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "upload_files",
+					"referenceName": "upload_jobs",
 					"type": "PipelineReference"
 				},
 				"parameters": {
