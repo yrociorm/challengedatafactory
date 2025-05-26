@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "sourceEmployees"
+				},
+				{
+					"dataset": {
+						"referenceName": "departments_table",
+						"type": "DatasetReference"
+					},
+					"name": "sourceDepartments"
 				}
 			],
 			"sinks": [],
@@ -17,6 +24,9 @@
 				{
 					"name": "filteredEmployees",
 					"description": "Add expression for the filter"
+				},
+				{
+					"name": "joinEmployees"
 				}
 			],
 			"scriptLines": [
@@ -30,7 +40,20 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourceEmployees",
-				"sourceEmployees filter(!isNull(Column_4) && !isNull(Column_5)) ~> filteredEmployees"
+				"source(output(",
+				"          id as integer,",
+				"          name as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> sourceDepartments",
+				"sourceEmployees filter(!isNull(Column_4) && !isNull(Column_5)) ~> filteredEmployees",
+				"filteredEmployees, sourceDepartments join(Column_5 == id,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinEmployees"
 			]
 		}
 	}
