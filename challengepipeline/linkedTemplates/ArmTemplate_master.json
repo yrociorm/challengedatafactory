@@ -59,6 +59,18 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
+		"trigger_upload_employees_properties_upload_employees_parameters_sourceFolder": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"trigger_upload_employees_properties_upload_employees_parameters_sourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"trigger_upload_employees_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -124,6 +136,15 @@
 					},
 					"trigger_upload_jobs_properties_typeProperties_scope": {
 						"value": "[parameters('trigger_upload_jobs_properties_typeProperties_scope')]"
+					},
+					"trigger_upload_employees_properties_upload_employees_parameters_sourceFolder": {
+						"value": "[parameters('trigger_upload_employees_properties_upload_employees_parameters_sourceFolder')]"
+					},
+					"trigger_upload_employees_properties_upload_employees_parameters_sourceFile": {
+						"value": "[parameters('trigger_upload_employees_properties_upload_employees_parameters_sourceFile')]"
+					},
+					"trigger_upload_employees_properties_typeProperties_scope": {
+						"value": "[parameters('trigger_upload_employees_properties_typeProperties_scope')]"
 					}
 				}
 			},
