@@ -63,6 +63,38 @@
 									"name": "name",
 									"type": "varchar"
 								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 3
+								},
+								"sink": {
+									"name": "hire_date",
+									"type": "date"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 4
+								},
+								"sink": {
+									"name": "job_id",
+									"type": "int",
+									"precision": 10
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 5
+								},
+								"sink": {
+									"name": "department_id",
+									"type": "int",
+									"precision": 10
+								}
 							}
 						],
 						"typeConversion": true,
@@ -74,13 +106,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "departments_file",
+						"referenceName": "employees_file",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "departments_table",
+						"referenceName": "employees_table",
 						"type": "DatasetReference"
 					}
 				]
