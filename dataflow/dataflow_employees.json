@@ -19,7 +19,15 @@
 					"name": "sourceDepartments"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "employees_table",
+						"type": "DatasetReference"
+					},
+					"name": "sinkEmployee"
+				}
+			],
 			"transformations": [
 				{
 					"name": "filteredEmployees",
@@ -53,7 +61,26 @@
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> joinDeparments"
+				"     broadcast: 'auto')~> joinDeparments",
+				"joinDeparments sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          id as integer,",
+				"          name as string,",
+				"          hire_date as date,",
+				"          job_id as integer,",
+				"          department_id as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['Column_1'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkEmployee"
 			]
 		}
 	}
