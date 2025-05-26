@@ -987,12 +987,19 @@
 						"     insertable:false,",
 						"     updateable:false,",
 						"     upsertable:true,",
-						"     keys:['Column_1'],",
+						"     keys:['id'],",
 						"     format: 'table',",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
 						"     saveOrder: 1,",
-						"     errorHandlingOption: 'stopOnFirstError') ~> sinkEmployee"
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          id = Column_1,",
+						"          name = Column_2,",
+						"          hire_date = Column_3,",
+						"          job_id = Column_4,",
+						"          department_id = Column_5",
+						"     )) ~> sinkEmployee"
 					]
 				}
 			},
