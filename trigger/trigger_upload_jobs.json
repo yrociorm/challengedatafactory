@@ -1,5 +1,5 @@
 {
-	"name": "trigger_upload",
+	"name": "trigger_upload_jobs",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
