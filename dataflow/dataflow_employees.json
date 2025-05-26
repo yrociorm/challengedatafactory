@@ -17,6 +17,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "sourceDepartments"
+				},
+				{
+					"dataset": {
+						"referenceName": "job_table",
+						"type": "DatasetReference"
+					},
+					"name": "sourceJobs"
 				}
 			],
 			"sinks": [
@@ -38,6 +45,9 @@
 				},
 				{
 					"name": "mergeCondition"
+				},
+				{
+					"name": "joinJobs"
 				}
 			],
 			"scriptLines": [
@@ -59,13 +69,26 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> sourceDepartments",
+				"source(output(",
+				"          id as integer,",
+				"          title as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> sourceJobs",
 				"sourceEmployees filter(!isNull(Column_4) && !isNull(Column_5)) ~> filteredEmployees",
 				"filteredEmployees, sourceDepartments join(Column_5 == id,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> joinDeparments",
-				"joinDeparments alterRow(upsertIf(Column_1>0)) ~> mergeCondition",
+				"joinJobs alterRow(upsertIf(Column_1>0)) ~> mergeCondition",
+				"joinDeparments, sourceJobs join(Column_4 == sourceJobs@id,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinJobs",
 				"mergeCondition sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
