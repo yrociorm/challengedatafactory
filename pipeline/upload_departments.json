@@ -30,10 +30,7 @@
 						"type": "AzureSqlSink",
 						"writeBehavior": "upsert",
 						"upsertSettings": {
-							"useTempDB": true,
-							"keys": [
-								"id"
-							]
+							"useTempDB": true
 						},
 						"sqlWriterUseTableLock": false,
 						"disableMetricsCollection": false
@@ -75,13 +72,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "job_file",
+						"referenceName": "departments_file",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "job_table",
+						"referenceName": "departments_table",
 						"type": "DatasetReference"
 					}
 				]

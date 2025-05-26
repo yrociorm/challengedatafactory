@@ -14,7 +14,7 @@
 				"precision": 10
 			},
 			{
-				"name": "title",
+				"name": "name",
 				"type": "varchar"
 			}
 		],
