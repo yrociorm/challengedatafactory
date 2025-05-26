@@ -1,0 +1,29 @@
+{
+	"name": "trigger_upload_employees",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "upload_employees",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"sourceFolder": "@triggerBody().folderPath",
+					"sourceFile": "@triggerBody().fileName"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/fileupload/blobs/employees",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
