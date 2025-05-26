@@ -27,19 +27,31 @@
 			"type": "string",
 			"defaultValue": "CloudSAf22e3849"
 		},
-		"triggerjobs_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
-		},
-		"triggerupload_properties_upload_files_parameters_sourceFolder": {
+		"trigger_upload_departments_properties_upload_departments_parameters_sourceFolder": {
 			"type": "string",
 			"defaultValue": "@triggerBody().folderPath"
 		},
-		"triggerupload_properties_upload_files_parameters_sourceFile": {
+		"trigger_upload_departments_properties_upload_departments_parameters_sourceFile": {
 			"type": "string",
 			"defaultValue": "@triggerBody().fileName"
 		},
-		"triggerupload_properties_typeProperties_scope": {
+		"trigger_upload_departments_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
+		},
+		"trigger_upload_jobs_properties_upload_jobs_parameters_sourceFolder": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"trigger_upload_jobs_properties_upload_jobs_parameters_sourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"trigger_upload_jobs_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
+		},
+		"triggerjobs_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
@@ -95,14 +107,23 @@
 					"upload_files_trg_properties_typeProperties_scope": {
 						"value": "[parameters('upload_files_trg_properties_typeProperties_scope')]"
 					},
-					"triggerupload_properties_upload_files_parameters_sourceFolder": {
-						"value": "[parameters('triggerupload_properties_upload_files_parameters_sourceFolder')]"
+					"trigger_upload_departments_properties_upload_departments_parameters_sourceFolder": {
+						"value": "[parameters('trigger_upload_departments_properties_upload_departments_parameters_sourceFolder')]"
 					},
-					"triggerupload_properties_upload_files_parameters_sourceFile": {
-						"value": "[parameters('triggerupload_properties_upload_files_parameters_sourceFile')]"
+					"trigger_upload_departments_properties_upload_departments_parameters_sourceFile": {
+						"value": "[parameters('trigger_upload_departments_properties_upload_departments_parameters_sourceFile')]"
 					},
-					"triggerupload_properties_typeProperties_scope": {
-						"value": "[parameters('triggerupload_properties_typeProperties_scope')]"
+					"trigger_upload_departments_properties_typeProperties_scope": {
+						"value": "[parameters('trigger_upload_departments_properties_typeProperties_scope')]"
+					},
+					"trigger_upload_jobs_properties_upload_jobs_parameters_sourceFolder": {
+						"value": "[parameters('trigger_upload_jobs_properties_upload_jobs_parameters_sourceFolder')]"
+					},
+					"trigger_upload_jobs_properties_upload_jobs_parameters_sourceFile": {
+						"value": "[parameters('trigger_upload_jobs_properties_upload_jobs_parameters_sourceFile')]"
+					},
+					"trigger_upload_jobs_properties_typeProperties_scope": {
+						"value": "[parameters('trigger_upload_jobs_properties_typeProperties_scope')]"
 					}
 				}
 			},

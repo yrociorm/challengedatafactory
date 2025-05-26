@@ -20,16 +20,25 @@
 		"AzureSqlDatabase_properties_typeProperties_userName": {
 			"value": "CloudSAf22e3849"
 		},
-		"triggerjobs_properties_typeProperties_scope": {
-			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
-		},
-		"triggerupload_properties_upload_files_parameters_sourceFolder": {
+		"trigger_upload_departments_properties_upload_departments_parameters_sourceFolder": {
 			"value": "@triggerBody().folderPath"
 		},
-		"triggerupload_properties_upload_files_parameters_sourceFile": {
+		"trigger_upload_departments_properties_upload_departments_parameters_sourceFile": {
 			"value": "@triggerBody().fileName"
 		},
-		"triggerupload_properties_typeProperties_scope": {
+		"trigger_upload_departments_properties_typeProperties_scope": {
+			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
+		},
+		"trigger_upload_jobs_properties_upload_jobs_parameters_sourceFolder": {
+			"value": "@triggerBody().folderPath"
+		},
+		"trigger_upload_jobs_properties_upload_jobs_parameters_sourceFile": {
+			"value": "@triggerBody().fileName"
+		},
+		"trigger_upload_jobs_properties_typeProperties_scope": {
+			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
+		},
+		"triggerjobs_properties_typeProperties_scope": {
 			"value": "/subscriptions/26d7d07d-2dba-4feb-a583-be294dc1b8e9/resourceGroups/ChallengeGlobant/providers/Microsoft.Storage/storageAccounts/challengemigrationfiles"
 		},
 		"upload_files_trg_properties_typeProperties_scope": {
